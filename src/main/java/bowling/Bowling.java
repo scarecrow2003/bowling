@@ -56,7 +56,7 @@ public class Bowling {
             }
             //End check for invalid score for every frame
 
-            //Main calculation
+            //Get the score for every frame
             if (i != len-1 && frame[0] == 10) {
                 if (i <= len-4 && scores[i + 1] > 20) {
                     //More than two continuous strikes
@@ -66,6 +66,10 @@ public class Bowling {
                     scores[i] += scores[i + 1];
                 }
             }
+        }
+        //Get the final result
+        for (int i=1; i<len; i++) {
+            scores[i] += scores[i-1];
         }
         return scores;
     }
